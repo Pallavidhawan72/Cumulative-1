@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Cumulative1.Models.Student>
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif; /* Changed font to Arial */
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: #2c3e50;
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .student-list {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        border-radius: 8px; /* Rounded corners */
+        overflow: hidden; /* Ensures rounded corners are visible */
+    }
+
+        .student-list th,
+        .student-list td {
+            padding: 12px;
+            border: 1px solid #ddd; /* Light gray border */
+            text-align: left;
+            font-size: 16px;
+            color: #34495e; /* Text color */
+        }
+
+        .student-list th {
+            background-color: #007BFF; /* Header background color */
+            color: white; /* Header text color */
+            font-weight: bold;
+        }
+
+        .student-list tr:nth-child(even) {
+            background-color: #eaf2fb; /* Light blue for even rows */
+        }
+
+        .student-list tr:hover {
+            background-color: #cce5ff; /* Light blue on hover */
+        }
+
+    .student-item a {
+        color: #2980b9;
+        text-decoration: none;
+        font-weight: bold;
+        display: block;
+    }
+
+        .student-item a:hover {
+            text-decoration: underline;
+            color: #1abc9c;
+        }
+
+    .student-item {
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+        .student-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+</style>
+
+<div class="container">
+    <h1>Student List</h1>
+
+    <div class="student-list">
+        @foreach (Cumulative1.Models.Student Student in Model)
+        {
+            <div class="student-item">
+                <a href="/StudentPage/Show/@Student.Id">
+                    @Student.SFName @Student.SLName
+                </a>
+            </div>
+        }
+    </div>
+</div>

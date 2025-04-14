@@ -1,0 +1,119 @@
+﻿@model Cumulative1.Models.Course
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7f6;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 850px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: #2c3e50;
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .course-details {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+    }
+
+        .course-details div {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            color: #34495e;
+        }
+
+        .course-details span.label {
+            font-weight: bold;
+            color: #2980b9;
+            text-transform: uppercase;
+        }
+
+    .view-btn {
+        display: block;
+        text-align: center;
+        background-color: #2980b9;
+        color: white;
+        text-decoration: none;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+        .view-btn:hover {
+            background-color: #1f6391;
+        }
+
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 14px;
+        color: #777;
+    }
+
+        .footer a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+            .footer a:hover {
+                text-decoration: underline;
+            }
+</style>
+
+<div class="container">
+    <h1>Course Details</h1>
+
+    <div class="course-details">
+        <div>
+            <span class="label">Course Name:</span>
+            <span>@Model.Cname</span>
+        </div>
+        <div>
+            <span class="label">Course Code:</span>
+            <span>@Model.Ccode</span>
+        </div>
+        <div>
+            <span class="label">Teacher ID:</span>
+            <span>@Model.Tid</span>
+        </div>
+        <div>
+            <span class="label">Start Date:</span>
+            <span>@Model.startdate.ToString("yyyy-MM-dd")</span>
+        </div>
+        <div>
+            <span class="label">Finish Date:</span>
+            <span>@Model.finishdate.ToString("yyyy-MM-dd")</span>
+        </div>
+    </div>
+
+    <a href="/CoursePage/Show/@Model.CId" class="view-btn">View Full Course Details</a>
+
+    <div class="footer">
+        <p>&copy; 2024 Course Management System</p>
+        <p><a href="/Home/Contact">Contact Us</a></p>
+    </div>
+</div>
